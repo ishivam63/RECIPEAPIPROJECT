@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en-gb" dir="ltr">
+
+
+<!-- Mirrored from html-theme-kocina.vercel.app/sign-in.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 12 Jun 2024 11:49:21 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kocima | Cooking Recipe HTML Template</title>
+  <link rel="shortcut icon" type="image/png" href="../static/img/favicon.png" >
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Leckerli+One&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../static/css/main.css" />
+  <script src="../static/js/uikit.js"></script>
+</head>
+
+<body>
+{% if messages %}
+<div style="position:fixed;top:80px;right:20px;z-index:9999;min-width:300px;">
+  {% for message in messages %}
+  <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %} alert-dismissible fade show" role="alert" style="margin-bottom:10px;box-shadow:0 4px 15px rgba(0,0,0,0.15);">
+    {{ message }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="this.parentElement.remove()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  {% endfor %}
+</div>
+<script>
+  setTimeout(function(){
+    var alerts = document.querySelectorAll('.alert');
+    alerts.forEach(function(el){ el.style.display='none'; });
+  }, 4000);
+</script>
+{% endif %}
+
+
+
+<div class="uk-grid-collapse" data-uk-grid>
+  <div class="uk-width-1-2@m uk-padding-large uk-flex uk-flex-middle uk-flex-center" data-uk-height-viewport>
+    <div class="uk-width-3-4@s">
+      <div class="uk-text-center uk-margin-bottom">
+        <a class="uk-logo uk-text-primary uk-text-bold" href="index.html">Kocina</a>
+      </div>
+      <div class="uk-text-center uk-margin-medium-bottom">
+        <h1 class="uk-h2 uk-letter-spacing-small">Sign In to Kocina</h1>
+      </div>
+
+      <form class="uk-text-center" method="post" action="/verifyuser">
+        {%csrf_token%}
+        <div class="uk-width-1-1 uk-margin">
+          <label class="uk-form-label" for="email">Email</label>
+          <input id="email" class="uk-input uk-form-large uk-border-pill uk-text-center" name="email" type="email" placeholder="tom@company.com">
+        </div>
+        <div class="uk-width-1-1 uk-margin">
+          <label class="uk-form-label" for="password">Password</label>
+          <input id="password" class="uk-input uk-form-large uk-border-pill uk-text-center" name="password" type="password" placeholder="Min 8 characters">
+        </div>
+        <div class="uk-width-1-1 uk-margin uk-text-center">
+          <a class="uk-text-small uk-link-muted" href="#">Forgot your password?</a>
+        </div>
+        <div class="uk-width-1-1 uk-text-center">
+          <button class="uk-button uk-button-primary uk-button-large">Sign In</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="uk-width-1-2@m uk-padding-large uk-flex uk-flex-middle uk-flex-center uk-light" data-uk-height-viewport>
+    <div class="uk-background-cover uk-background-norepeat uk-background-blend-overlay uk-background-overlay 
+      uk-border-rounded-large uk-width-1-1 uk-height-xlarge uk-flex uk-flex-middle uk-flex-center" 
+      style="background-image: url (https://source.unsplash.com/7MAjXGUmaPw/600x700);">
+      <div class="uk-padding-large">
+        <div class="uk-text-center">
+          <h2 class="uk-letter-spacing-small">Hello There, Join Us</h2>
+        </div>
+        <div class="uk-margin-top uk-margin-medium-bottom uk-text-center">
+          <p>Enter your personal details and join the cooking community</p>
+        </div>
+        <div class="uk-width-1-1 uk-text-center">
+          <a href="/signup" class="uk-button uk-button-primary uk-button-large">Sign Up</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+
+
+<!-- Mirrored from html-theme-kocina.vercel.app/sign-in.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 12 Jun 2024 11:49:21 GMT -->
+</html>
+

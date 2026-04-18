@@ -1,0 +1,41 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block main%}
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+
+            <table class="table table-bordered">
+              <thead class="table-dark">
+                <tr>
+                  <th scope="col">Sr No</th>
+                  <th scope="col">Recipe Name</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% if wishlistItems%}
+                   {%for items in wishlistItems%}
+                    <tr>
+                      <th>{{items.id}}</th>
+                      <td>{{items.recipe_name}}</td>
+                      <td><a href="/removeItem/{{items.id}}">Remove</a></td>
+                    </tr>
+                  {%endfor%}
+              {%else%}
+                <h1>No Item Available</h1>
+              {%endif%}
+              </tbody>
+            </table>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+{%endblock%}
